@@ -1,31 +1,221 @@
-\chapter{Généralités}
+\chapter{Previous research and scientific achievements}
 \chaptertoc{}
+\paragraph{}From coding algorithms to decoding development, with roots in \emph{theoretical computer science}, I have transitioned to a \emph{biologist}.
 
-\section{Généralités sur la fusion thermonucléaire}
+\paragraph{}I am and have been interested in understanding how single fertilised oocytes form highly complex, fully functional organisms.
+To understand the mechanisms driving embryogenesis, I have been developing computer vision and graph-based algorithms to quantitatively probe embryonic development at the single cell scale.
 
-	Lors d'une réaction de fusion, deux noyaux légers s'assemblent pour former un noyau plus lourd. Pour obtenir une réaction de fusion, il faut rapprocher suffisamment deux noyaux qui, puisqu'ils sont tous deux chargés positivement, se repoussent. Une certaine énergie est donc indispensable pour franchir cette barrière et arriver dans la zone, très proche du noyau, où se manifeste l'interaction forte capable de l'emporter sur la répulsion électrostatique.
-	\\ %  retour à la ligne
-	La réaction de fusion la plus favorable est celle faisant intervenir le deutérium et le tritium:
-	\begin{equation}
-		_{1}^{2}D^{+}~+~_{1}^{3}T^{+}~\rightarrow ~_{2}^{4}He^{2+}~(3,5\,\textrm{MeV})~+~n~(14,1\,\textrm{MeV})
-	    \label{equ:fusion}
-	\end{equation}
+\paragraph{}After my training in theoretical computer science I did a Ph.D. in biology where I sought to understand cell-cell communication in developing ascidians.
+This research led to the modelling of cell-cell signalling in the ascidian \emph{Phallusia mammillata}.
+I then did a postdoc at Janelia Research Campus in the USA where I wanted to understand how cell movements shape mouse embryogenesis.
+To this end, I developed graph-based algorithms to reconstruct the very first dynamic single-cell scale average of the development of mouse embryos.
+I then wanted to link cell dynamics and gene expression still at the single cell scale.
+I therefore paired with experts in spatial transcriptomics.
+This collaboration aimed at building a 3D anatomical atlas of cell molecular content of mouse embryos at 8.5 and 9.5 days after fertilisation.
+This work led to the first 3D virtual \textit{in-situ} of mouse embryos where about 27000 gene can be queried across more than 85000 cells.
 
-	\noindent % pas d'indentation en début de paragraphe
-	\lipsum[2]\index{mauris}
-	Un acronyme utilisé une première fois \gls{asb} puis une seconde fois \gls{asb}. Une définition du glossaire \gls{rutile} et une entrée de la nomenclature \gls{+a}.
+\paragraph{}I am now at the Institut de Biologie du D\'eveloppement de Marseille since September 2023.
+There I am the head of the group: ``Computer Science, Morphogenesis and Variability'' where we work on understanding how developing embryos are shaped by the interplay between morphological changes and molecular dynamics in cells and tissues.
 
-\section{Deuxième partie du premier chapitre}
+\paragraph{}Since the start of my Ph.D. until now as the head of the group ``Computer Science, Morphogenesis and Variability'' at the Institut de Biologie du D\'eveloppement de Marseille, I have been trying to address the following question:
+\begin{center}
+   \textbf{How do cells organise to form a fully functional organism?}
+\end{center}
+\paragraph{}I am doing so by studying morphological dynamics as well as gene expression dynamics at the single cell scale in whole embryos.
+% To quantitatively look at embryonic development developing methods, algorithms and models to quantitatively describe and study morphogenesis and morphodynamics from \textit{in-toto} recordings of fluorescently-labelled developing embryos, at the single-cell scale.
+I have successfully studied and developed quantitative tools for a wide range of model organisms, including ascidians~\cite{Guignard2020}, Drosophila~\cite{Malin-Mayor:2022aa}, mouse~\cite{McDole:2018aa,Sampath-Kuma:2022aa}, Parhyale~\cite{Wolff:2018aa}, zebrafish and Trunk-Like-Structure (organoids)~\cite{Veenvliet:2020aa}.
+These experiences led me to be invited to write the book chapter entitled \textit{Mathematical and bioinformatic tools for cell tracking}~\cite{Hirsch2022} in the book \textit{Cell Movement in Health and Disease}.
 
-	\lipsum[2]
 
-	L'utilisation des formules dans un environnement autorise les références croisées. Par exemple, nous pouvons faire appel à la formule de la fusion deutérium-tritium~\ref{equ:fusion}. Contrairement à une simple formule centrée :
-	$$\ce{(2Na+,SO4^2- ) + (Ba^2+, 2Cl- ) -> BaSO4 v + 2NaCl}$$
+My work have been proven useful to the scientific community and it shows through the citation number (913 in the past 5 years\footnote{according to \href{https://scholar.google.fr/citations?user=PCSQdWIAAAAJ&hl=en}{Google Scholar}}) and the number of times my software have been downloaded (for example more than 700 thousand times\footnote{according to \href{https://pypi.org/project/pypinfo/}{pypinfo}} for the latest single cell omics library)
+% The algorithms that I have produced have been proven useful to
+% Finally, the recent work done for Project 3 led to two different computational libraries installed more that 700 thousand times each\footnote{according to \href{https://pypi.org/project/pypinfo/}{pypinfo}} after less than a year of being officially published.
+\paragraph{}In this document I present the past research projects for which I was the main contributor and that led to publications in peer-reviewed journals:
+\begin{itemize}
+\item[] \textbf{Project 1}: Contact area-dependent cell communication and the morphological invariance of ascidian embryogenesis
+\item[] \textbf{Project 2}: In Toto Imaging and Reconstruction of Post-Implantation Mouse Development at the Single-Cell Level
+\item[] \textbf{Project 3}: Spatial transcriptomic maps of whole mouse embryos
+\item[] \textbf{Side projects}: Brief presentation of projects that have led to publications but for which I was not the main contributor
+\item[] \textbf{Teaching and outreach}: Brief presentation of my work towards education and outreach
+% \item[] \textbf{Software}: Finally, I briefly describe my main software contributions
+\end{itemize}
+\section{Contact area-dependent cell communication and the morphological invariance of ascidian embryogenesis}
+\paragraph{}While working on embryos of a marine animal from the tunicate family, \textit{Phallusia mammillata} (\textit{P.m.}), I investigated the dichotomy between the high developmental stereotypy and the strong genomic divergence observed within the ascidian class.
+As in \textit{Caenorhabditis elegans}, ascidian cell positions and lineages are tightly conserved; in ascidians, the developmental stereotypy has also been observed down to the shape of the cells.
+This conservation, however, is found between ascidian species despite their rapid genomic divergence.
+To investigate this paradox, I collaborated with U.-M.\ Fiuza, who acquired several \textit{in-toto} 3D time-series of \textit{P.m.}\ embryos, to quantitatively study cell dynamics (divisions, displacements and shape changes) during embryogenesis.
+I developed ASTEC (for Adaptive Segmentation and Tracking of Embryonic Cells), a set of algorithms that reconstructs the shape of each cell and tracks them from a 3D time-series of images of fluorescently-labelled embryo membranes.
+Cell membrane segmentation and tracking provided information on the shape of every cell and its lineage throughout the recorded period of development, covering gastrulation and neurulation.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=.6\textwidth]{../Figures/Ascidians.png}
+\caption{\textbf{Graphical abstract of~\cite{Guignard2020}} (Left) Quantitative analysis of Phallusia embryogenesis.
+We combined live light-sheet imaging of cell membranes (left images) with automated cell segmentation and tracking with colour-coded cell fates (centre images) to extract quantitative cell morphological properties (right images, colour-coded by cell compactness).
+From top to bottom: embryo at the 64-cell, mid-gastrula, and late gastrula stages.
+(Right) Cell signalling model.
+We first made simplifying assumptions concerning the distribution and diffusion of signalling pathway components (top) and then integrated cell contact geometry with gene expression profiles to predict pathway activation levels in single cells (centre) and binarized induction status (bottom).}
+\end{center}
+\end{figure}
+\paragraph{}ASTEC was successfully used to build the cell segmentations and tracking of 10 wild-type and 2 perturbed embryos.
+Using these segmentations, we quantified \textit{P.m.}\ developmental variability at the single-cell level, looking at division patterns, cell shapes and cell area of contacts.
+While already observed to be highly stereotyped, this study quantified for the first time developmental stereotypy.
+Remarkably, we found that \textit{P.m.}\ development is highly constrained, down to the cell area of contact.
+Moreover, this quantification showed that \textit{P.m.}\ developmental variability is comparable within and between embryos.
+This similarity, coupled with the fact that the embryos we observed were from different genetic backgrounds, showed, for the first time, that the low developmental morphological variability observed in \textit{P.m.} development is dominated by stochastic effects rather than genetic fluctuations.
+\paragraph{}The 12 reconstructed embryos, combined with a model of cell-cell signalling we developed, revealed that communication between cells in ascidians is at least in part regulated by their surfaces of contact.
+This mechanism is different to the more widespread French flag model which relies on ligand diffusion and concentration decay.
+While this cell-cell signalling control by area of contact has been previously observed it was, to the best of our knowledge, the first time it was studied quantitatively for diffusing ligands.
+This mechanism is not specific to ascidian development and could very well be used in other organisms, at least for part of their development, especially when the number of cells is low, making signalling controlled by diffusion harder to tune.
+\paragraph{}We also showed \textit{in-silico} using our model and \textit{in-vivo} by changing the cell area of contacts in a developing embryo, that about half of the cells of the embryo saw their induction state altered by small changes in their geometry.
+This observation implied that the shape of these cells was under tight constraints.
+The maintenance of correct cell-cell communication by cell geometry rather than by protein concentration levels led us to conjecture, as a result, that the constraints on the genome were likely to be relaxed, allowing its rapid evolution and therefore the genomic divergence between ascidian species, while still conserving the cell geometry.
+This research led to proposing a likely mechanism that enables rapid genomic divergence while conserving cell geometry and lineage.
+\paragraph{}This project led to the publication of the article entitled \emph{Contact area-dependent cell communication and the morphological invariance of ascidian embryogenesis} in the journal Science~\cite{Guignard2020}.
+This article was then relayed in the french and international press: a 1-page article in Le Monde, an article in Pour la Science and an article in The New-York Times (see my curriculum vitae for all the links).
+This project also led to three conference articles.
+One of which I was the first author~\cite{Guignard:2014aa} and the two others in which I was second author~\cite{Michelin:2014aa, Michelin:2015aa}.
 
-	\lipsum[9]
 
-	\begin{displayquote}
-	\lipsum[10]
-	\end{displayquote}
 
-	A titre d'exemple, nous venons d'insérer une courte citation fictive.
+
+\section{In Toto Imaging and Reconstruction of Post-Implantation Mouse Development at the Single-Cell Level}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=.6\textwidth]{../Figures/Mouse.png}
+\caption{\textbf{Graphical abstract of~\cite{McDole:2018aa}} (Self explanatory)}
+\end{center}
+\end{figure}
+\paragraph{}While working with mouse embryos, I sought to quantify, at the single-cell level, the cell dynamics that helped disentangle the multiple tissues and organs formed during the two days of development following mouse embryo implantation.
+Knowledge about tissue patterning at these stages of development had previously mainly come from static snapshots, leaving cell dynamics unexplored.
+I worked in collaboration with K. McDole, who developed the imaging protocol and acquired the \textit{in-toto} 3D time-series of fluorescently-labelled nuclei of the mouse post-implantation embryo.
+Using these 3D time-series, I developed a new pipeline of algorithms to track cell movements throughout the entirety of the 48 hours-period imaged.
+This pipeline allowed us to determine the spatial origin and destination of every cell at any point in time.
+Combining this output together with a manual labelling of tissues at the final time point of the time-series, we were able to back propagate the origin of each tissue type and to observe their disentanglement.
+This showed an unexpectedly already present spatial organisation of cells in tissues at early stages of development.
+\paragraph{}In order to offer a more complete quantification of cell dynamics, I developed TARDIS, an algorithm that non-linearly co-registers, in space and time, multiple developing embryos and builds a synthetic average embryo embedded in an average space.
+This average embryo was the first quantitative atlas of mouse post-implantation development, at the single-cell scale.
+It gives access not only to average cell behaviours but also to the variability observed across the embryos used to build the atlas.
+Moreover, we integrated the manual tissue labelling from our set of embryos to build a statistical fate map allowing us to quantify for any cell its probability to acquire a specific future fate, given its spatio-temporal position.
+\paragraph{}Ultimately, we built tools to register single segmented time points onto our atlas.
+These tools provide the ability to observe and quantify the most likely dynamics of targeted cells.
+Our atlas can therefore be used as a proxy to observe dynamics of cells that could not be identified in vivo.
+The statistical morphodynamics atlas that we created has been described as “the most detailed view ever of a developing mouse”  and is the starting point of further quantitative analyses of the mouse post-implantation development.
+\paragraph{}This project led to an article entitled \emph{In Toto Imaging and Reconstruction of Post-Implantation Mouse Development at the Single-Cell Level} that was published in the journal Cell \cite{McDole:2018aa}.
+This article was extremely well received by the scientific community, so much so that Science and Nature methods each dedicated a press article about the project.
+Moreover, the general press also relayed the project with articles published in The New-York Times and in Wired (see the curriculum vitae for the link to the articles).
+
+
+
+
+\section{Spatial trans\-cript\-omic maps of whole mouse embryos}\label{Project-3}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=.7\textwidth]{../Figures/sc3D.png}
+\caption{\textbf{Graphical abstract of~\cite{Sampath-Kuma:2022aa}}.
+Mouse embryos are sliced at different developmental stages (E8.5, E9.0, E9.5).
+The sections are sequenced while conserving the 2D spatial information thanks to the SlideSeqV2 method.
+The recordings are then reassembled to form 3D digital embryos, which in turn allows the mapping of the cell states and the visualisation of gene expression patterns.}
+\end{center}
+\end{figure}
+\paragraph{}During my previous projects I had studied embryogenesis through the lens of cell physical dynamics.
+While cell physical dynamics do carry a tremendous amount of information, they are missing a crucial one: the molecular content of the cells.
+To circumvent this issue, I started to work in collaboration with the groups of Fei Chen at the Broad institute in Cambridge, MA, USA and the group of Alexander Meissner at the Max Planck Institute for Molecular Genetics in Berlin.
+The main aim of our project was to provide to the community a tool that allowed looking at virtually all genes expressed in a whole 3 dimensional embryo at a near single-cell resolution while keeping the spatial context of these cells.
+With the follow-up idea that one could then combine the morphological and molecular recordings into one comprehensive and multimodal atlas.
+\paragraph{}The group of F. Chen developed SlideSeqv2 and the group of A. Meissner developed the protocol to use SlideSeqv2 with mouse embryos.
+SlideSeqv2 is a method that allows the measurement of the molecular content of single cells while keeping their 2D spatial information.
+\paragraph{}While these methods output 2D point clouds, they could not directly be exploited to look for spatially differentially expressed genes.
+In that context I developed a set of graph-based methods to reconstruct, display and query the datasets created using SlideSeqv2.
+The challenges to fully exploit these dataset are multiple.
+First it is necessary to register together the different 2D point clouds to reconstruct a coherent 3D structure.
+Then, it is necessary to develop methods to query the datasets.
+One main question that we were asking was about automatically and systematically finding all the genes that have specific expression patterns.
+In other words, we were interested in finding genes that were expressed in a localised manner within a given tissue.
+To automatically and systematically detect genes that were locally expressed, I developed a method that compared the average density of the spatial graph of the cells of the embryo.
+The two densities that I compared were the initial density of a given tissue against the density of the sub-graph of the expressing cells in that tissue.
+If the gene expression is randomly distributed, the two densities are linearly correlated, if the gene expression is localised, this linear correlation is lost.
+By computing the deviation from the expected linear correlation I was able to find known locally expressed genes but also to find novel genes that might be of interest for the biologists.
+\paragraph{}Finally, to be able to investigate these datasets, it is important to visualise them, in 3D, dynamically.
+So, I hijacked an existing program (napari) dedicated to image visualisation to make it display 3D point clouds that incorporate about 27000 measurements per point.
+Doing so it is possible to visualise the 85000 cells and their 27000 measurements, live, dynamically, and to project onto it any kind of precomputed information.
+\paragraph{}This project led to the publication of an article entitled \emph{Spatial transcriptomic maps of whole mouse embryos} that was published in Nature Genetics\cite{Sampath-Kuma:2022aa}.
+Following up this project I was interviewed by The Biologist as an expert in spatial omics.
+Moreover, the core software that I developed for this project has been installed about 700 thousand times according to \href{https://pypi.org/project/pypinfo/}{pypinfo}.
+\section{Side projects}
+\paragraph{}In parallel to developing the above mentioned projects, I punctually worked in collaboration with biologists to help answer specific questions.
+\paragraph{}\textbf{Parahyale.} I worked with A. Pavlopoulos from the Institute of Molecular Biology and Biotechnology, Greece, on Parahyale limb development.
+In this context, I wanted to understand if it was possible to predict the final position of a cell in a \emph{P. hawaiensis} limb from its division pattern.
+By developing an algorithm that compares different cell lineage trees, I showed that indeed cells closer to each other in space have more similar division patterns than cells that live further away.
+That led to a publication entitled \emph{Multi-view light-sheet imaging and tracking with the MaMuT software reveals the cell lineage of a direct developing arthropod limb} in the journal eLife~\cite{Wolff:2018aa}.
+\paragraph{}\textbf{Drosophila.} I also worked in collaboration with C. Malin-Mayor from the group of J. Funke at JRC to help develop a deep-learning algorithm to detect and track nuclei in developing embryos using a minimal number of sparse annotations.
+While deep-learning has displayed great performances for cell detection and tracking, one of its bottlenecks today is that these algorithms need extensive and comprehensive annotations to be trained.
+In this project we developed an algorithm which does not need extensive annotation which greatly reduces the load and the difficulty of manual annotation for the training.
+This project led to the publication of the article entitled \emph{Automated reconstruction of whole-embryo cell lineages by learning from sparse annotations} in the journal Nature Biotechnology~\cite{Malin-Mayor:2022aa}.
+\paragraph{}\textbf{Zebrafish.} I worked with Y. Wan, again from the group of P.J. Keller, to develop a pipeline to stabilise 3D+t movies of Zebrafish spinal cord calcium activity.
+As the embryo was imaged in non-immobilised conditions, muscular contractions induced a non-linear deformation of the spinal cord therefore preventing the computation of neural activity.
+The pipeline I developed allowed the registration of consecutive time points in a non-linear fashion allowing the computation of neural activity and ultimately confirming that the spinal cord was behaving similarly in immobilised and non-immobilised conditions.
+This project led to an article entitled \emph{Single-Cell Reconstruction of Emerging Population Activity in an Entire Developing Circuit} in the journal Cell~\cite{Wan:2019aa}.
+\paragraph{}\textbf{Organoids.} I worked in collaboration with J. Veenvliet and A. Bolondi from the groups of B.G. Herrmann and A. Meissner at the Max Planck Institute for Molecular Genetics in Berlin, to develop tools to segment and quantify the shape of neural tubes and guts in Trunk-Like-Structures resulting from aggregates derived from mouse embryonic stem cells in an extracellular matrix compound (organoids).
+In this study, I quantified the morphology of the neural tube and the gut validating their similarity to the orthologous tissues grown in wild-type conditions.
+This project led to an article entitled \emph{Mouse embryonic stem cells self-organise into trunk-like structures with neural tube and somites} published in the journal Science~\cite{Veenvliet:2020aa}.
+\section{Education and outreach}
+\paragraph{}I firmly believe that part of the duty of a researcher is to teach science to younger generations and to promote science to non-scientists.
+This is why I have been teaching since the start of my Ph.D..
+I have been teaching computer science mainly to biologists but also to computer scientists, mathematicians and physicists.
+\paragraph{}During my Ph.D. I started teaching the basics of computer science independently of its use to biologists to university students.
+First to students from Nime university but also, more punctually, to students from \'Ecole Normale Sup\'erieur de Paris during one of their summer schools.
+During these classes I was teaching initiation to programming, graph theory and data analysis.
+\paragraph{}After my Ph.D. I continued teaching as a teaching assistant during the Advanced School of Quantitative Biology – Mechanics and Mechanisms of Morphogenesis of the Kavli Institute for Theoretical Physics, Santa-Barbara, CA, USA (2016).
+There I taught biologists how to extract and analyse data from images acquired by fluorescence microscopy.
+\paragraph{}But most of my teaching efforts arose from my years as a group leader at the Turing Centre for living system.
+There, I fully contributed to developing teaching units for the interdisciplinary master \emph{Computer Science, Mathematics and Biology (CMB)}.
+First by co-leading the Professional Path teaching unit for Master 1 \emph{CMB} students.
+Then by teaching ``Implementing Turing Patterns using design patterns in Python'' to Master 2 \emph{CMB} students.
+Finally, I have been organising a yearly course: ``Introduction to biological Data training course'' on data analysis in Python for Ph.D. students and postdoctoral researchers of the CENTURI programme.
+In this yearly crash course I teach initiation to Python to pre/postdocs who would like to develop their own methods to analyse the data they have generated.
+\paragraph{}In parallel to teaching computer science to computer scientists, biologists and more, I have been engaged in outreach actions.
+I gave interviews to broad audience journals such as Le Monde, Pour la Science and Howard Hugh Medical Institute outreach as an expert in developmental biology and image analysis for the articles mentioned above\cite{Guignard2020,McDole:2018aa}.
+I also have been interviewed by The Biologist for my work in\cite{Sampath-Kuma:2022aa} as an expert in spatial omics.
+\paragraph{}I have also been part of the making of two outreach videos. First the video ``Cries or whispers between cells'' that explain my Ph.D. work for a wide audience as a cartoon. Second for a video to promote COVID vaccination: ``Letter to Jade, the Covid vaccination explained to teenagers''.
+For the first video I was consulted as an expert in developmental biology and computer science and for the second video I was consulted as an expert in data analysis.
+\paragraph{}Finally, for the last 3 years I have been promoting computer science applied to biology by co-organising a Hackathon to bring computer scientists and engineers to work on biological problems.
+These hackathons have been proven popular with overwhelming positive feedback from the participants and the project leaders.
+% \section{Software}
+% \paragraph{}Throughout all these projects I have developed many software that are all open source and available on GitHub.
+% All these software were solely developed by myself (except when mentioned otherwise).
+% They are ordered by number of downloads (according to \href{https://pypi.org/project/pypinfo/}{pypinfo}) or otherwise alphabetically.
+% \paragraph{}\textbf{sc3D}  (\(\sim 723~\mathtt{k}\) downloads)\\
+% (\url{https://github.com/GuignardLab/sc3D}):\\
+% The core library to handle 3D spatial transcriptomics
+% \paragraph{}\textbf{napari-sc3d-viewer} (\(\sim 720~\mathtt{k}\) downloads)\\
+% (\url{https://github.com/GuignardLab/napari-sc3D-viewer}):\\
+% A light and dynamic viewer for 3D spatial transcriptomics
+% \paragraph{}\textbf{Registration tools} (\(\sim 613\) downloads)\\
+% (\url{https://github.com/GuignardLab/registration-tools}):\\
+% A Python library based on an already existing C++ library.
+% The registration-tools library allows users to co-register images together either in space or in time.
+% The registrations can have multiple degrees of freedom (rigid, affine, non-linear).
+% \paragraph{}\textbf{LineageTree} (\(\sim 374\) downloads)\\
+% (\url{https://github.com/leoguignard/LineageTree}):\\
+% A library to read, store and compute cell lineage tree specific operations on cell lineage trees.
+% \paragraph{}\textbf{ASTEC}\\(\url{https://gitlab.inria.fr/astec/astec}):\\
+% A Python and C++ computer vision software to detect cells, reconstruct their shapes and track them from 3D recordings of membranes from fluorescence microscopy.
+% This library was developed for Project 1.
+% This library was developed together with C. Malandain.
+% \paragraph{}\textbf{Cell-cell interaction model}\\(\url{https://github.com/leoguignard/cell-cell-interaction-model}):\\
+% A Python library for the cell-cell signalling model developed for Project 1.
+% The model itself was developed in collaboration with B. Leggio, C. Godin and P. Lemaire
+% \paragraph{}\textbf{IO}\\(\url{https://github.com/GuignardLab/IO}):\\
+% A generic Python library to read and write images.
+% \paragraph{}\textbf{napari-3d-registration}\\(\url{https://github.com/GuignardLab/napari-3D-registration}):\\
+% A graphical user interface for the registration tools.
+% It is implemented as a napari plugin.
+% \paragraph{}\textbf{SVF}\\(\url{https://github.com/leoguignard/SVF}):\\
+% A Python library to compute statistical vector flows from cell trackings.
+% This library was developed for Project 2.
+% \paragraph{}\textbf{TARDIS}\\(\url{https://github.com/leoguignard/TARDIS}):\\
+% A Python library to co-register dynamic point clouds in space and time provided fiducials.
+% This library was developed for Project 2.
+% \paragraph{}\textbf{TLS-morpho}\\(\url{https://github.com/leoguignard/TLS-morpho}):\\
+% A Python library to quantify the morphology of Trunk-Like-Structures.
+% This library was developed for the Side project Organoids.

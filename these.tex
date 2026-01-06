@@ -1,15 +1,21 @@
 \documentclass[french]{amu_these}
+\usepackage{ulem}
+% \usepackage[style=ieee, backend=biber]{biblatex}
+
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
 
 \begin{document}
 
 										
 	\input{tex_before/titre.tex}			%% page de titre
 										
-	\input{tex_before/affidavit}			%% affidavit et licence
+	% \input{tex_before/affidavit}			%% affidavit et licence
 
-	\input{tex_before/publications}			%% liste de publications et participation aux conférences
+	% \input{tex_before/publications}			%% liste de publications et participation aux conférences
 
-	\input{tex_before/resume}				%% résumé
+	% \input{tex_before/resume}				%% résumé
 
 	\input{tex_before/abstract}				%% abstract
 
@@ -18,21 +24,21 @@
     \microtypesetup{protrusion=false}	%% désactive la protrusion (TOC LOFT GLS)
 	\tableofcontents					%% TOC
 	\listoffigures						%% LOF
-	\listoftables						%% LOT
-	\printglossary[						%% acronymes
-		type=\acronymtype,
-		title={Liste des acronymes},
-		toctitle={Liste des acronymes}
-		]
-	\printglossary[						%% glossaire
-		title={Glossaire},
-		toctitle={Glossaire}
-		]
-	\printglossary[						%% nomenclature
-		type=notation,
-		title={Nomenclature},
-		toctitle={Nomenclature}
-		]
+	% \listoftables						%% LOT
+	% \printglossary[						%% acronymes
+	% 	type=\acronymtype,
+	% 	title={Liste des acronymes},
+	% 	toctitle={Liste des acronymes}
+	% 	]
+	% \printglossary[						%% glossaire
+	% 	title={Glossaire},
+	% 	toctitle={Glossaire}
+	% 	]
+	% \printglossary[						%% nomenclature
+	% 	type=notation,
+	% 	title={Nomenclature},
+	% 	toctitle={Nomenclature}
+	% 	]
     \microtypesetup{protrusion=true}	%% rétabli la protrusion
 
 	\ohead{\leftmark\Ifstr{\rightmark}{\leftmark}{}{ -- \rightmark}}	%% place le chapître et la partie en en-tête
@@ -43,21 +49,24 @@
 
 	\input{tex_body/chap2}
 
-	\input{tex_body/chap3}
+	% \input{tex_body/chap3}
 
 	\input{tex_body/conc}
 
-	\appendix
+	% \appendix
 
 	\newpage
+	% {\bibliographystyle{ieeetr}}
+	% {\bibliography{../biblio}}
+
 	\printbibliography[heading=bibintoc]%% bibliographie
 	
-	\newpage
-	\printindex							%% index
+	% \newpage
+	% \printindex							%% index
 	
-	\newpage
-	\printendnotes						%% notes
+	% \newpage
+	% \printendnotes						%% notes
 
-	\input{tex_behind/annexes}			%% annexes
+	% \input{tex_behind/annexes}			%% annexes
 
 \end{document}

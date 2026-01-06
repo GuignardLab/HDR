@@ -22,9 +22,9 @@
 \RequirePackage[utf8]{inputenc}				%% encodage du texte
 \RequirePackage[T1]{fontenc}				%% encodage des fontes
 \RequirePackage{fourier}					%% polices Adobe Utopia (activés)
-\RequirePackage[english,main=french]{babel}	%% typographie (français par défaut)
-\RequirePackage[babel]{csquotes}			%% guillemets typographiques
-\MakeAutoQuote{«}{»}						%% espacement automatique des guillemets
+\RequirePackage[english]{babel}	%% typographie (français par défaut)
+% \RequirePackage[babel]{csquotes}			%% guillemets typographiques
+% \MakeAutoQuote{«}{»}						%% espacement automatique des guillemets
 
 %%% typographie et mise en page
 \RequirePackage{scrhack}					%% macros personnalisées (KOMA-Script)
@@ -58,7 +58,7 @@
 \usetikzlibrary{decorations.markings}
 
 \floatplacement{figure}{H}					%% placer une figure là où elle a été appelée
-\graphicspath{{fig/}{logo/}}				%% chemins vers fichiers images
+\graphicspath{{Figures}{fig/}{logo/}}				%% chemins vers fichiers images
 
 %%% appareil de référence (sauf glossaires)
 \PassOptionsToPackage{						%% options biblatex
@@ -71,7 +71,7 @@
 	pagetracker,							%% pour l'utilisation d'ibidem
 	ibidtracker=constrict,					%% pour l'utilisation d'ibidem
 	citestyle=authoryear-ibid,				%% style de citation auteur-année
-	bibstyle=alphabetic,					%% style de bibliographie alphabétique
+	bibstyle=ieee,					%% style de bibliographie alphabétique
 %	bibstyle=iso-authoryear,				%% style de bibliographie ISO 690
 	backref=true							%% liens retour des références (cf. p.)
 	}
@@ -171,7 +171,7 @@
 %%% commandes personnelles (macros)
 \newcommand{\langue}{\emph}					%% mots en langues étrangères en italique : \langue{framework}
 \newcommand{\citital}{\emph}				%% citation en italique : \citital{to be or not to be}
-\renewcommand{\mkbegdispquote}[2]{\itshape} %% courte citation en italique : \begin{displayquote} ... \end{displayquote}
+% \renewcommand{\mkbegdispquote}[2]{\itshape} %% courte citation en italique : \begin{displayquote} ... \end{displayquote}
 
 \newcommand{\acc}{\ensuremath{\omega ^{2}=\omega ^{2}_{0}+2\alpha \theta}\xspace}
 \newcommand{\emiss}[2][]{\ensuremath{\varepsilon_{#2}^{#1}}\xspace}
@@ -185,7 +185,7 @@
 \setcounter{secnumdepth}{3}					%% profondeur des sections numérotées
 \setcounter{tocdepth}{2}					%% profondeur des sections dans la table des matières
 \counterwithout{equation}{chapter}			%% numérotation continue des formules
-\addto\captionsfrench{\def\tablename{Tableau}}		%% renomme Table en Tableau dans les légendes
+% \addto\captionsfrench{\def\tablename{Tableau}}		%% renomme Table en Tableau dans les légendes
 
 %\renewcommand{\thefootnote}{\alph{footnote}}		%% format de numérotation des notes de bas de page
 %\let\footnote=\endnote								%% passe les footnote en endnote

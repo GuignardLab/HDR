@@ -1,2 +1,60 @@
 \addchap{Introduction}
-\lipsum[1-2]
+\paragraph{}A single fertilised oocyte generates a highly organised living organism composed of thousands to billions of cells.
+Through divisions, shape changes, growth, rearrangement or programmed death, cells gradually form coherent groups that organise in tissues, themselves organising into organs and eventually creating a fully functional organism.
+This process, called embryogenesis, is highly complex and requires precise spatial and temporal coordination with precise regulation of hundreds to millions of cells, their geometry, their spatial organisation and their molecular content, to eventually produce the final functional organism.
+Despite its complexity, the result of this process must be reproducible: a fertilised oocyte must produce a functional adult.
+% \paragraph{}Added to the complexity mentioned above, embryonic development
+\paragraph{}One of the first steps to understanding the mechanisms driving any given process is to observe it as precisely as possible and quantify it.
+Developmental biologists have been observing processes for centuries to understand the underlying rules governing the creation of an organism from a single fertilised egg.
+\paragraph{}In the past ten years, technological breakthroughs have pushed the observations of biological samples to scales that were not previously accessible.
+More specifically, the continuous development of light-sheet fluorescence microscopy (method of the year 2014~\cite{Meth:2015aa}) has enabled the observation of whole embryos, throughout their development, at the single cell resolution, for periods lasting from hours to days.
+Another set of revolutionary methods are single-cell sequencing methods (methods of the year 2013~\cite{Meth:2014aa}, breakthrough of the year 2018~\cite{Crespi2018}) and more specifically spatially resolved single cell sequencing methods (method of the year 2020~\cite{Meth2021}) that allow to precisely measure the molecular content of all the cells in a given embryo, at a given time in the development.
+\paragraph{}Altogether, these two complementary new methods have brought the realm of observation of the state of an organism to a whole new level.
+But, while these novel methods allow highly resolved and sometimes prolonged observations of the organisms, they generate datasets that are too large and too complex to be analysed manually, and often even to be analysed using standard computational methods.
+For example, light-sheet microscopes generate three-dimensional movies that weigh up to a few terabytes in memory and can contain tens of thousands of cells that must be detected and followed to quantify their dynamics.
+Developing computational methods to perform such tasks automatically is currently a hot research area.
+\paragraph{}Furthermore, single-cell sequencing methods measure the concentration of tens of thousands of different molecules in tens of thousands of cells generating datasets with dimensionality far higher than what has already been treated in biology.
+Again, more and more groups are working on developing methods to treat these datasets.
+\paragraph{}These new methods allow biologists to quantitatively peek at developmental processes at unprecedented scales and precision.
+But, because of the extreme characteristics of these newly acquired datasets, new computational and mathematical methods are required to accurately extract the quantitative information buried within them.
+Moreover, even once the measurements are extracted, it is often nontrivial to make sense of them nor to extract rules from these observations.
+For that, too, novel theoretical methods have to be designed.
+\paragraph{}This is why it is now often necessary to first answer computational questions to then answer biological ones.
+\section*{Objectives}
+\paragraph{}My research programme consists in better understanding the interplay between cell dynamics and cell gene expression patterns.
+I will do so by developing novel methods to extract biologically relevant quantitative information from the previously mentioned acquisition methods.
+Another goal of my research program is to make this extracted quantitative information accessible to visualise, browse and query, hence easily available to me and the biology community.
+This work will be carried in close relationship with other biologists, computer scientists and physicists while following these three axes:
+\begin{itemize}
+   \item \textbf{Axis 1}: \underline{Morphological}: Deciphering cell dynamics by quantify them in developing organisms from \emph{in-toto} recording and build dynamic averages of these quantifications
+   \item \textbf{Axis 2}: \underline{Molecular}: Systematically identifying genes of interest by quantifying single cell molecular content of developing organisms from near single-cell spatial omics and build averages of these quantification
+   \item \textbf{Axis 3}: \underline{Morpholecular}: Bridge morphological and molecular information to understand how they interplay to control embryogenesis at the single-cell scale
+\end{itemize}
+\begin{figure}[h!]
+   \begin{center}
+       \includegraphics[width=.8\textwidth]{../Figures/Figures_Figure 1.png}
+       \caption{\textbf{Schematics of my research proposal} A. Recording of the development from microscopes or from spatial-single cell technics.
+       Done by collaborators.
+       B. Reconstruction of the acquired microscope time-series to quantify cell morphodynamics.
+       C. Aggregation of the multiple morphodynamic reconstructions into an average atlas.
+       D. Reconstruction of the spatial-omics datasets.
+       E. Aggregation of the multiple spatial-omics reconstructions into an average atlas.
+       F. Aggregation of the two atlases with different modalities into a multimodal single-cell atlas: The morpholecular atlas}
+   \end{center}
+\end{figure}
+\paragraph{}My research programme aims at bringing novel insights on both model and non-model organisms in developmental biology.
+% Led by my own biological questions and together with my current and future collaborators, the computational approaches that I will develop will always motivated by biology.
+While the algorithms and libraries will be primarily developed to answer my own biological questions, they will most likely be useful to the larger biology community when they will want to observe their organisms quantitatively, at the single-cell scale.
+Finally, the outputs of my research will be potentially useful to the applied physicist community wanting to develop data driven models of embryonic development.
+% \paragraph{}\underline{Host institution}: I have recently moved my own group to the Institut de Biologie du Développement de Marseille (IBDM, UMR 7288) in Marseille.
+% Therefore, the IBDM would be my preferred host institution.
+% The IBDM focuses on developmental biology which fits the biological questions I want to address.
+% Moreover, the IBDM already has interdisciplinary groups: a bio-computational group (B. Habermann, bioinformatics) and a biophysics group (P.-F. Lenne group, physical approaches to morphogenesis).
+% % I am the only image analysis group, even though many groups work with fluorescence imaging.
+% The IBDM greatly benefits from my current group as we are doing image analysis, spatial transcriptomics and data analysis as well as I am greatly benefiting from all the potential collaborations with groups generating dataset that would need quantitative analysis.
+% Moreover, my research about embryonic development across 6 different species fits well within specific groups such as the ones of P.-F. Lenne or A. Le Bivic, two groups with which I already have ongoing collaborations.
+% Other groups, such as the one of T. Lecuit, B. Prud’homme and V. Bertrand would be fruitful terrains for new collaborations.
+% \paragraph{}The IBDM is also part of the Turing Centre for living systems (CENTURI), a centre for interdisciplinary research within which I am currently a group leader.
+% \paragraph{}Another choice for developing my research would be the La\-bo\-ra\-toire d’In\-for\-ma\-ti\-que et Sys\-tèmes (LIS, UMR 7020) also on the Aix-Marseille university campus.
+% The LIS is currently hosting me and my group, and is a computer science laboratory where my research on image analysis and applied graph theory would fit well.
+% I am currently already integrated, as a CENTURI group leader, within the group ACRO (algorithms, combinatorial and research operational) in the Calculus department where my research on applying graph theory to biological models fits one of the missions of the group, that is the application of their developed methods to real world problems.
