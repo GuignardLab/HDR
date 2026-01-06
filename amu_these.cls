@@ -157,16 +157,16 @@
 	}
 
 %%% glossaires
-\RequirePackage[
-	acronym,								%% liste des acronymes
-	xindy,									%% compilateur xindy
-	toc,									%% affichage dans la TOC
-	style=altlist							%% affichage des entrées
-	]
-	{glossaries}							%% glossaires (le package glossaries est chargé après le package hyperref)
-\newglossary[nlg]{notation}{not}{ntn}{Nomenclature} % Création d'un type de glossaire 'notation'
-\makeglossaries								%% génère les glossaires
-\loadglsentries{tex_before/gloss}				%% fichiers sources glossaires
+% \RequirePackage[
+% 	acronym,								%% liste des acronymes
+% 	xindy,									%% compilateur xindy
+% 	toc,									%% affichage dans la TOC
+% 	style=altlist							%% affichage des entrées
+% 	]
+% 	{glossaries}							%% glossaires (le package glossaries est chargé après le package hyperref)
+% \newglossary[nlg]{notation}{not}{ntn}{Nomenclature} % Création d'un type de glossaire 'notation'
+% \makeglossaries								%% génère les glossaires
+% \loadglsentries{tex_before/gloss}				%% fichiers sources glossaires
 
 %%% commandes personnelles (macros)
 \newcommand{\langue}{\emph}					%% mots en langues étrangères en italique : \langue{framework}
