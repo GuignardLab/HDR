@@ -1,4 +1,4 @@
-\chapter{Future work}
+\chapter{A computational framework for statistical atlases}
 \chaptertoc{}
 \paragraph{}At the interface between developmental biology and computer science, I address together questions about embryonic morphogenesis, computer vision, data science and data visualisation.
 By developing novel and innovative computational algorithms I sought to quantify, model and better understand embryonic development at the single cell scale in whole organisms throughout development.
@@ -30,37 +30,31 @@ My future work will produce the following major outcomes:
 	\item \underline{Data science}: {Ways to display, browse and query datasets in a seamless manner}
 	\item \underline{Dataset}: {Statistical atlases of the development of multiple model and non-model organisms}
 \end{enumerate}
-\section{Scientific context}
-\paragraph{}A single fertilised oocyte generates a highly organised living organism composed of thousands to billions of cells.
-Through divisions, shape changes, growth, rearrangement or programmed death, cells gradually form coherent groups that organise in tissues, themselves organising into organs and eventually creating a fully functional organism.
-This process, called embryogenesis, is highly complex and requires precise spatial and temporal coordination with precise regulation of hundreds to millions of cells, their geometry, their spatial organisation and their molecular content, to eventually produce the final functional organism.
-Despite its complexity, the result of this process must be reproducible: a fertilised oocyte must produce a functional adult.
-% \paragraph{}Added to the complexity mentioned above, embryonic development
-\paragraph{}One of the first steps to understanding the mechanisms driving any given process is to observe it as precisely as possible and quantify it.
-Developmental biologists have been observing processes for centuries to understand the underlying rules governing the creation of an organism from a single fertilised egg.
-\paragraph{}In the past ten years, technological breakthroughs have pushed the observations of biological samples to scales that were not previously accessible.
-More specifically, the continuous development of light-sheet fluorescence microscopy (method of the year 2014~\cite{Meth:2015aa}) has enabled the observation of whole embryos, throughout their development, at the single cell resolution, for periods lasting from hours to days.
-Another set of revolutionary methods are single-cell sequencing methods (methods of the year 2013~\cite{Meth:2014aa}, breakthrough of the year 2018~\cite{Crespi2018}) and more specifically spatially resolved single cell sequencing methods (method of the year 2020~\cite{Meth2021}) that allow to precisely measure the molecular content of all the cells in a given embryo, at a given time in the development.
-\paragraph{}Altogether, these two complementary new methods have brought the realm of observation of the state of an organism to a whole new level.
-But, while these novel methods allow highly resolved and sometimes prolonged observations of the organisms, they generate datasets that are too large and too complex to be analysed manually, and often even to be analysed using standard computational methods.
-For example, light-sheet microscopes generate three-dimensional movies that weigh up to a few terabytes in memory and can contain tens of thousands of cells that must be detected and followed to quantify their dynamics.
-Developing computational methods to perform such tasks automatically is currently a hot research area.
-\paragraph{}Furthermore, single-cell sequencing methods measure the concentration of tens of thousands of different molecules in tens of thousands of cells generating datasets with dimensionality far higher than what has already been treated in biology.
-Again, more and more groups are working on developing methods to treat these datasets.
-\paragraph{}These new methods allow biologists to quantitatively peek at developmental processes at unprecedented scales and precision.
-But, because of the extreme characteristics of these newly acquired datasets, new computational and mathematical methods are required to accurately extract the quantitative information buried within them.
-Moreover, even once the measurements are extracted, it is often nontrivial to make sense of them nor to extract rules from these observations.
-For that, too, novel theoretical methods have to be designed.
-\paragraph{}This is why it is now often necessary to first answer computational questions to then answer biological ones.
-\section{Objectives}
-\paragraph{}My research programme consists in better understanding the interplay between cell dynamics and cell gene expression patterns.
-I will do so by developing novel methods to extract biologically relevant quantitative information from the previously mentioned acquisition methods.
-Another goal of my research program is to make this extracted quantitative information accessible to visualise, browse and query, hence easily available to me and the biology community.
-This work will be carried in close relationship with other biologists, computer scientists and physicists while following these three axes:
+\section{Scientific context}\label{sec:context}
+\paragraph{}The Introduction of this manuscript described how, over the past decade, light-sheet fluorescence microscopy and (spatially resolved) single-cell omics have opened the observation of embryonic development at the single-cell scale, and how the sheer size and dimensionality of the datasets they produce have made computational analysis unavoidable.
+I take this situation as the starting point of my research programme, and I focus here on the two specific bottlenecks that this programme aims at removing.
+\paragraph{}\underline{From individual samples to statistical representatives.}
+Whatever the modality, a single acquisition documents a single individual.
+Embryogenesis is reproducible, yet no two embryos are identical: cells divide at slightly different times, tissues fold at slightly different rates and expression levels fluctuate from one sample to the next.
+Consequently, deciding whether a difference measured between a wild-type and a perturbed sample is a genuine effect of the perturbation, or whether it merely falls within the normal range of variation, requires more than a pair of recordings.
+It requires an average representative of the normal development together with a measure of its dispersion, that is, a statistical atlas.
+Such atlases remain rare~\cite{Wolff:2018aa,McDole:2018aa,Li2019,Guignard2020,Leroy2026}, and the few that exist have been built for one organism and one modality at a time.
+They mostly rely on a reference sample that has to be chosen arbitrarily and on manually placed landmarks, two ingredients that bias the resulting average and that prevent scaling to cohorts of tens of samples.
+\paragraph{}\underline{From separate modalities to an integrated view.}
+Cell morphodynamics and cell molecular content are, today, acquired, reconstructed, stored and visualised independently, by different communities and with different tools.
+Morphological measurements come as cell trajectories and lineage trees, while near single-cell spatial omics come as high-dimensional per-cell tables whose three-dimensional coherence is, moreover, lost between consecutive sections.
+No common data structure, and no common visualisation environment, currently articulates the two modalities.
+As a result, the questions that biologists spontaneously ask, such as \emph{which genes are expressed where and when a given morphogenetic event takes place?}, cannot yet be answered systematically.
+\paragraph{}Both bottlenecks are computational before being biological: they have to be lifted before the corresponding biological questions can even be formulated quantitatively.
+This is precisely what my research programme proposes to do.
+\section{Objectives}\label{sec:objectives}
+\paragraph{}My research programme tackles these two bottlenecks with a single objective: better understanding the interplay between cell dynamics and cell gene expression patterns, at the single-cell scale and at the scale of whole organisms.
+Reaching it requires, on the one hand, algorithms that extract quantitative measurements from the acquisition methods mentioned above and aggregate them into statistical atlases and, on the other hand, data structures and interfaces that make the resulting quantitative information easy to visualise, browse and query, both for me and for the biology community.
+This work will be carried out in close relationship with other biologists, computer scientists and physicists, and follows the three axes announced in the Introduction, which the remainder of this chapter details and turns into a concrete work plan:
 \begin{itemize}
-   \item \textbf{Axis 1}: \underline{Morphological}: Deciphering cell dynamics by quantify them in developing organisms from \emph{in-toto} recording and build dynamic averages of these quantifications
-   \item \textbf{Axis 2}: \underline{Molecular}: Systematically identifying genes of interest by quantifying single cell molecular content of developing organisms from near single-cell spatial omics and build averages of these quantification
-   \item \textbf{Axis 3}: \underline{Morpholecular}: Bridge morphological and molecular information to understand how they interplay to control embryogenesis at the single-cell scale
+   \item \textbf{Axis 1} (Section~\ref{sec:morphodynamic}): \underline{Morphological}: Decipher cell dynamics by quantifying them in developing organisms from \emph{in-toto} recordings and build dynamic statistical averages of these quantifications, on \textit{P. hawaiensis}, \textit{D. melanogaster} and gastruloids
+   \item \textbf{Axis 2} (Section~\ref{sec:sc3D}): \underline{Molecular}: Systematically identify genes of interest by quantifying the single-cell molecular content of developing organisms from near single-cell spatial omics and build spatial averages of these quantifications, through the sc3D and sc3D-viewer libraries
+   \item \textbf{Axis 3} (Section~\ref{sec:morpholecular}): \underline{Morpholecular}: Bridge the morphological and the molecular information to understand how they interplay to control embryogenesis at the single-cell scale
 \end{itemize}
 \begin{figure}[h!]
    \begin{center}
@@ -92,7 +86,7 @@ Other groups, such as the one of T. Lecuit, B. Prud’homme and V. Bertrand woul
 % I am currently already integrated, as a CENTURI group leader, within the group ACRO (algorithms, combinatorial and research operational) in the Calculus department where my research on applying graph theory to biological models fits one of the missions of the group, that is the application of their developed methods to real world problems.
 
 
-\section{Morphodynamic atlases of embryonic development}
+\section{Morphodynamic atlases of embryonic development}\label{sec:morphodynamic}
 \paragraph{}To understand morphogenesis and embryogenesis, biologists observe the normal development of their organisms of choice~\cite{Wallingford2019}.
 They also perform targeted disruptions on their organisms of interest and compare the disrupted development to the original one.
 Both methods of investigation require looking at a set of samples, as precisely as possible.
@@ -180,7 +174,7 @@ This pipeline includes the production of experimental data, here immunostainings
 From the 3D images, the pipeline is an adaptation of a deep neural network~\cite{Weigert2020} to segment nuclei shapes, and extract a range of nuclear properties (volumes, deformations, divisions..), averaged over variable spatial scales and compared with genetic observables to look for spatial correlations with genetic observables, for instance, the mesoderm marker Brachyury.
 Ultimately, I would like to probe the spatio-temporal scales of variability that could be observed during gastruloid development to enable the construction of a morphogenetic atlas of their development.
 It would create an invaluable source of information for the rapidly growing field of organoids.
-\section{sc3D: a fast and easy dive into spatial near single-cell omics}
+\section{sc3D: a fast and easy dive into spatial near single-cell omics}\label{sec:sc3D}
 \paragraph{}The first axis is focused on reconstructing cell morphodynamics and building statistical representatives of embryogenesis at the single cell scale.
 While understanding cell movements and shape changes is important to understand embryogenesis, one crucial piece of information is missing from these measurements: cell molecular content.
 Indeed, precise spatiotemporal orchestration of gene expression is required for proper embryonic development.
@@ -195,17 +189,25 @@ Amongst these are two unavoidable ones:
    \item \textbf{How to incorporate spatial dependency information to the already complex high dimensional analysis?}
    \item \textbf{How to visualise and browse efficiently such large datasets?}
 \end{itemize}
-In this axis, I propose to develop two computational libraries, namely sc3D and sc3D-viewer, to efficiently handle and analyse (sc3D) and dynamically display and browse (sc3D-viewer) scSO datasets.
+In this axis, I propose to build upon two computational libraries that I have already prototyped and publicly released, sc3D and sc3D-viewer, and to turn them into a complete and generic framework to efficiently handle and analyse (sc3D) and dynamically display and browse (sc3D-viewer) scSO datasets.
+In their current state, both libraries were written for, and validated on, a single use case: the mouse spatial transcriptomic atlas presented in Section~\ref{Project-3}~\cite{Sampath-Kuma:2022aa}.
+sc3D reconstructs a three-dimensional dataset from its two-dimensional sections and stores it, and sc3D-viewer displays it within napari.
+What follows therefore does not describe libraries to be started from scratch, but the functionalities, and the algorithmic questions that come with them, that remain to be designed and implemented to extend these prototypes beyond that single use case.
 These two libraries split the axis in two sub-axes:
 \begin{itemize}
    \item \textbf{Sub-axis 2.1: sc3D}.
-   The sc3D library will extend the already existing AnnData~\cite{Wolf2018} library, allowing handling of classic single-cell transcriptomic datasets.
-   sc3D will include the organisation of the spatial (position and neighbourhood relationship) information in efficient data structures.
-   sc3D will also contain scSO specific preprocessing and analysis methods.
+   sc3D extends the already existing AnnData~\cite{Wolf2018} library, allowing handling of classic single-cell transcriptomic datasets.
+   I will extend it further so that it organises the spatial (position and neighbourhood relationship) information in efficient data structures, and so that it hosts the scSO specific preprocessing and analysis methods that are currently missing.
    \item \textbf{Sub-axis 2.2: sc3D-viewer}.
-   sc3D-viewer will be based on the sc3D data structure and will allow the display of scSO datasets in 3D.
-   sc3D-viewer will allow the projection, on the fly, of expression and/or co-expression of measured genes or any post-computed metrics.
+   sc3D-viewer is based on the sc3D data structure and already allows the display of scSO datasets in 3D.
+   I will extend it to project, on the fly, the expression and/or co-expression of measured genes or any post-computed metrics, and to act as a graphical front-end to the methods of sc3D.
 \end{itemize}
+\paragraph{}\underline{Where the scSO datasets come from.}
+These developments are driven by, and will be validated on, two sources of scSO data.
+The first one is already available: the mouse embryo datasets acquired with SlideSeqV2~\cite{Stickels2021} in collaboration with the groups of F. Chen and A. Meissner (Section~\ref{sec:sc3D-community}).
+The second one still has to be produced: the scSO datasets of \textit{P. hawaiensis} embryos that will be acquired together with A. Pavlopoulos.
+Because these embryos will be sequenced at the end of a light-sheet recording of the very same sample, so as to obtain both modalities from a single individual, the design of their acquisition is inseparable from the multimodal effort and is therefore described with it, in Section~\ref{sec:morpholecular}.
+The present axis is where the computational tools that these acquisitions will feed, and that Axis 3 will in turn reuse, are built: the two sections should be read as the software side (Section~\ref{sec:sc3D}) and the experimental side (Section~\ref{sec:morpholecular}) of one and the same scSO effort.
 \begin{figure}[!th]
    \begin{center}
        \includegraphics[width=.8\textwidth]{../Figures/Figures_Figure 4.png}
@@ -248,17 +250,18 @@ This average single-cell spatial atlas of the species or tissue recorded will en
 \paragraph{}Extracting biologically relevant information from such complex and high dimensional datasets is challenging.
 Exploring the datasets is the first step to orienting questions and helping experimentalists design experiments.
 Such exploration has to be easy and seamless.
-\paragraph{}To that aim, I will develop sc3D-viewer: a 3D viewer for scSO based on napari, a software initially dedicated to 3D visualisation of microscopy images.
-sc3D-viewer will be both a way of exploring scSO datasets but also a graphical interface for sc3D to allow users to run the tools and methods proposed in sc3D without having to write code.
-\paragraph{}Our viewer will aim not only to display the dataset in 3D but also to be intuitively interactive.
+\paragraph{}To that aim, I will pursue the development of sc3D-viewer, the 3D viewer for scSO that I have already prototyped and released (\href{https://www.github.com/guignardlab/napari-sc3D-viewer}{napari-sc3D-viewer}) and that is built on napari, a software initially dedicated to 3D visualisation of microscopy images.
+The current prototype loads a reconstructed dataset, displays it in 3D and projects onto the cells the expression of a chosen gene (Fig.~\ref{fig:sc3D-viewer}).
+Beyond this, sc3D-viewer will become not only a way of exploring scSO datasets but also a graphical interface for sc3D, allowing users to run the tools and methods proposed in sc3D without having to write code.
+\paragraph{}The functionalities that remain to be developed all aim at making the viewer not only a display but an intuitively interactive one.
 Among others, the viewer will allow the user to choose tissues or clusters to display or hide.
 It will also allow the user to choose to project on the cells any measured gene expression or metrics such as the pseudo-time for example.
 The user will also be able to have a dynamic interaction between the 3D view of their datasets and the more common 2D projections such as UMAPs and tSNEs representations.
 sc3D-viewer will allow the user to select cells from any 2D projection and display them on the fly in the 3D viewer.
 I will also enable the user to display multiple genes simultaneously to explore gene co-expression.
 Finally, I will develop methods to compute meshes from any set of points to visualise the different tissues or classes better.
-\paragraph{}As I have already developed a prototype: \href{https://www.github.com/guignardlab/napari-sc3D-viewer}{napari-sc3D-viewer}, I know that it will be possible to indeed have the rapid, seamless and in depth user experience that is required to explore such dense and large datasets.
-\subsection{Usefulness to the biological community in general}
+\paragraph{}The response times already obtained with the prototype, on datasets of tens of thousands of cells carrying tens of thousands of measurements each, convince me that the rapid, seamless and in depth user experience that is required to explore such dense and large datasets is indeed within reach.
+\subsection{Usefulness to the biological community in general}\label{sec:sc3D-community}
 \paragraph{}I have already started to develop these tools in collaboration with the groups of F. Chen at the Broad Institute, Cambridge, MA, USA and A. Meissner at the Max Planck Institute for Molecular Genetics, Berlin, Germany.
 The group of A. Meissner provided the samples, the group of F. Chen developed the method to measure the cell molecular content while keeping the spatial information and I developed the computational tools to reconstruct, analyse and visualise the generated datasets (see the document about the previous works for more details)~\cite{Sampath-Kuma:2022aa}.
 \begin{figure}[b!]
@@ -275,7 +278,7 @@ The atlas is a powerful tool for biologists who can perform in-silico 3D virtual
 Furthermore, biologists can systematically look for which genes are locally expressed in their tissues of interest.
 Currently developed for mouse data, expanding these methods to other organisms will be a valuable asset  to an even larger community.
 \paragraph{}Finally, the tools developed for the mouse datasets from A. Meissner's group will be extended to the datasets that will later be acquired by the group of A. Pavlopoulos with whom I have an ongoing collaboration.
-\section{Morpholecular atlases}
+\section{Morpholecular atlases}\label{sec:morpholecular}
 \paragraph{}\textbf{Axes 1} and \textbf{2} will produce extremely rich single-cell scale datasets of two different modalities: morphological and molecular.
 By themselves, these datasets have led to significant biological discoveries, however, they are not sufficient yet to reflect the complex synergy between morphology and molecular.
 In order to understand, at the single-cell scale, the interplays between the molecular content of a cell, group of cells or tissues and their morphodynamics, the next logical step is to integrate these two modalities together, morphological and molecular, into a common atlas.
@@ -295,6 +298,7 @@ If they are interested in a specific gene, they will be able to systematically l
 Moreover, while it is still an emergent model system, many tools have been developed for genetic manipulation and imaging of the embryos.
 \paragraph{}Such tools already exist and will allow the recordings of \textit{P. hawaïensis} to be done for both modalities in a single sample.
 The embryos will be imaged using a light-sheet fluorescence microscope, then, at the end of the recording of the cell morphodynamics, the sample will be frozen and the spatial single cell RNA sequencing will be made with SlideSeqV2~\cite{Stickels2021}.
+This acquisition is the production step announced in Section~\ref{sec:sc3D}: the scSO datasets that it generates are precisely those that the sc3D framework of Axis 2 will reconstruct, analyse and display, and it is described here rather than there because it cannot be designed independently from the imaging it is paired with.
 In doing so, I will be able to overlay both datasets from the same embryo at the same developmental time point.
 \paragraph{}This approach of combining imaging and SlideSeqV2~\cite{Stickels2021} will be performed up to different timepoints in order to acquire the co-recordings of the spatial single cell transcriptomics and the cell dynamics at different developmental times.
 These multimodal recordings will form a ground truth against which I will quantify the quality of the reconstruction of my methods.

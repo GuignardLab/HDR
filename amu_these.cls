@@ -61,23 +61,20 @@
 \graphicspath{{Figures}{fig/}{logo/}}				%% chemins vers fichiers images
 
 %%% appareil de référence (sauf glossaires)
-\PassOptionsToPackage{						%% options biblatex
-	backend=biber,							%% compilateur par défaut pour biblatex
-	maxnames=3,								%% nombre max. de noms auteurs dans la bibliographie
-	minnames=3,								%% nombre min. de noms auteurs dans la bibliographie
-	maxcitenames=1,							%% nombre max. de noms auteurs dans les citations
-	mincitenames=1,							%% nombre min. de noms auteurs dans les citations
-	sorting=nyt,							%% trier par nom, année, titre
-	pagetracker,							%% pour l'utilisation d'ibidem
-	ibidtracker=constrict,					%% pour l'utilisation d'ibidem
-	citestyle=authoryear-ibid,				%% style de citation auteur-année
-	bibstyle=ieee,					%% style de bibliographie alphabétique
-%	bibstyle=iso-authoryear,				%% style de bibliographie ISO 690
-	backref=true							%% liens retour des références (cf. p.)
-	}
-	{biblatex}
-\RequirePackage{biblatex}					%% gestion de la bibliographie avec biblatex
-\addbibresource{biblio.bib}					%% fichiers sources bibliographiques
+\PassOptionsToPackage{
+  backend=biber,
+  style=numeric-comp,     % numeric citations with compression
+  sorting=none,           % order bibliography by citation order
+  citestyle=numeric-comp,
+  bibstyle=numeric,
+  giveninits=true,        % initials instead of full first names
+  maxbibnames=999,        % Science does not truncate author lists
+  backref=true
+}{biblatex}
+
+\RequirePackage{biblatex}
+\addbibresource{biblio.bib}
+
 
 \RequirePackage{enotez}						%% notes de fin
 \setenotez{

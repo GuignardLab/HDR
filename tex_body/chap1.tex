@@ -1,12 +1,13 @@
-\chapter{Previous research and scientific achievements}
+\chapter{From coding algorithms to decoding development}
 \chaptertoc{}
-\paragraph{}From coding algorithms to decoding development, with roots in \emph{theoretical computer science}, I have transitioned to a \emph{biologist}.
+\paragraph{}Deeply rooted in \emph{theoretical computer science}, I have transitioned to being also a \emph{biologist}.
 
 \paragraph{}I am and have been interested in understanding how single fertilised oocytes form highly complex, fully functional organisms.
 To understand the mechanisms driving embryogenesis, I have been developing computer vision and graph-based algorithms to quantitatively probe embryonic development at the single cell scale.
 
-\paragraph{}After my training in theoretical computer science I did a Ph.D. in biology where I sought to understand cell-cell communication in developing ascidians.
-This research led to the modelling of cell-cell signalling in the ascidian \emph{Phallusia mammillata}.
+\paragraph{}After my training in theoretical computer science I sought to develop new computationial frameworks and methods to better our understanding of embroynic development.
+First, during my Ph.D, I worked at understanding how cell-cell communication impact the highly stereotyped development of ascidians embryos.
+This research led to the modelling of cell-cell signalling in the ascidian \emph{Phallusia mammillata} (\emph{P.m.}).
 I then did a postdoc at Janelia Research Campus in the USA where I wanted to understand how cell movements shape mouse embryogenesis.
 To this end, I developed graph-based algorithms to reconstruct the very first dynamic single-cell scale average of the development of mouse embryos.
 I then wanted to link cell dynamics and gene expression still at the single cell scale.
@@ -23,18 +24,17 @@ There I am the head of the group: ``Computer Science, Morphogenesis and Variabil
 \end{center}
 \paragraph{}I am doing so by studying morphological dynamics as well as gene expression dynamics at the single cell scale in whole embryos.
 % To quantitatively look at embryonic development developing methods, algorithms and models to quantitatively describe and study morphogenesis and morphodynamics from \textit{in-toto} recordings of fluorescently-labelled developing embryos, at the single-cell scale.
-I have successfully studied and developed quantitative tools for a wide range of model organisms, including ascidians~\cite{Guignard2020}, Drosophila~\cite{Malin-Mayor:2022aa}, mouse~\cite{McDole:2018aa,Sampath-Kuma:2022aa}, Parhyale~\cite{Wolff:2018aa}, zebrafish and Trunk-Like-Structure (organoids)~\cite{Veenvliet:2020aa}.
+I have successfully studied and developed quantitative tools for a wide range of model and non-model organisms, including ascidians~\cite{Guignard2020}, Drosophila~\cite{Malin-Mayor:2022aa}, mouse~\cite{McDole:2018aa,Sampath-Kuma:2022aa}, Parhyale~\cite{Wolff:2018aa}, zebrafish, gastruloid~\cite{Gros2025} and Trunk-Like-Structure (organoids)~\cite{Veenvliet:2020aa}.
 These experiences led me to be invited to write the book chapter entitled \textit{Mathematical and bioinformatic tools for cell tracking}~\cite{Hirsch2022} in the book \textit{Cell Movement in Health and Disease}.
 
 
-My work have been proven useful to the scientific community and it shows through the citation number (913 in the past 5 years\footnote{according to \href{https://scholar.google.fr/citations?user=PCSQdWIAAAAJ&hl=en}{Google Scholar}}) and the number of times my software have been downloaded (for example more than 700 thousand times\footnote{according to \href{https://pypi.org/project/pypinfo/}{pypinfo}} for the latest single cell omics library)
-% The algorithms that I have produced have been proven useful to
-% Finally, the recent work done for Project 3 led to two different computational libraries installed more that 700 thousand times each\footnote{according to \href{https://pypi.org/project/pypinfo/}{pypinfo}} after less than a year of being officially published.
-\paragraph{}In this document I present the past research projects for which I was the main contributor and that led to publications in peer-reviewed journals:
+My work have been proven useful to the scientific community and it shows through the citation number (1201 in the past 5 years\footnote{according to \href{https://scholar.google.fr/citations?user=PCSQdWIAAAAJ&hl=en}{Google Scholar}}) and the number of times my software have been downloaded (for example more than 10 thousand times\footnote{according to \href{https://pepy.tech/projects/napari-sc3d-viewer}{pepy.tech}})
+\paragraph{}In this chapter I present my past research projects for which I was contributor and that led to publications in peer-reviewed journals:
 \begin{itemize}
 \item[] \textbf{Project 1}: Contact area-dependent cell communication and the morphological invariance of ascidian embryogenesis
 \item[] \textbf{Project 2}: In Toto Imaging and Reconstruction of Post-Implantation Mouse Development at the Single-Cell Level
 \item[] \textbf{Project 3}: Spatial transcriptomic maps of whole mouse embryos
+\item[] \textbf{Project 4}: A quantitative pipeline for whole-mount deep imaging and analysis of multi-layered organoids across scales
 \item[] \textbf{Side projects}: Brief presentation of projects that have led to publications but for which I was not the main contributor
 \item[] \textbf{Teaching and outreach}: Brief presentation of my work towards education and outreach
 % \item[] \textbf{Software}: Finally, I briefly describe my main software contributions
@@ -43,7 +43,7 @@ My work have been proven useful to the scientific community and it shows through
 \paragraph{}While working on embryos of a marine animal from the tunicate family, \textit{Phallusia mammillata} (\textit{P.m.}), I investigated the dichotomy between the high developmental stereotypy and the strong genomic divergence observed within the ascidian class.
 As in \textit{Caenorhabditis elegans}, ascidian cell positions and lineages are tightly conserved; in ascidians, the developmental stereotypy has also been observed down to the shape of the cells.
 This conservation, however, is found between ascidian species despite their rapid genomic divergence.
-To investigate this paradox, I collaborated with U.-M.\ Fiuza, who acquired several \textit{in-toto} 3D time-series of \textit{P.m.}\ embryos, to quantitatively study cell dynamics (divisions, displacements and shape changes) during embryogenesis.
+To investigate this paradox, I collaborated with U.-M. Fiuza, who acquired several \textit{in-toto} 3D time-series of \textit{P.m.} embryos, to quantitatively study cell dynamics (divisions, displacements and shape changes) during embryogenesis.
 I developed ASTEC (for Adaptive Segmentation and Tracking of Embryonic Cells), a set of algorithms that reconstructs the shape of each cell and tracks them from a 3D time-series of images of fluorescently-labelled embryo membranes.
 Cell membrane segmentation and tracking provided information on the shape of every cell and its lineage throughout the recorded period of development, covering gastrulation and neurulation.
 \begin{figure}[h]
@@ -140,7 +140,41 @@ So, I hijacked an existing program (napari) dedicated to image visualisation to 
 Doing so it is possible to visualise the 85000 cells and their 27000 measurements, live, dynamically, and to project onto it any kind of precomputed information.
 \paragraph{}This project led to the publication of an article entitled \emph{Spatial transcriptomic maps of whole mouse embryos} that was published in Nature Genetics\cite{Sampath-Kuma:2022aa}.
 Following up this project I was interviewed by The Biologist as an expert in spatial omics.
-Moreover, the core software that I developed for this project has been installed about 700 thousand times according to \href{https://pypi.org/project/pypinfo/}{pypinfo}.
+Moreover, the core software that I developed for this project has been installed about 10 thousand times according to \href{https://pepy.tech/projects/napari-sc3d-viewer}{pepy.tech}.
+
+\section{A quantitative pipeline for whole-mount deep imaging and analysis of multi-layered organoids across scales}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=.7\textwidth]{../Figures/gastruloids}
+\caption{\textbf{Graphical abstract of~\cite{Gros2025}}.
+Overview of the experimental and computational pipeline for in toto imaging of organoids at cellular resolution and multiscale analyses.}
+\end{center}
+\end{figure}
+
+\paragraph{}For my first project as a group leader at the Laboratoire d'Informatique et Syst\`emes then at the Institut de Biologie du D\'eveloppement de Marseille I worked in collaboration Sham Tlili and Pierre-François Lenne in the group of Pierre-François Lenne.
+For this project, we were intetested in enabling the quantification of the development of gastruloid across spatial scales, from the sample scale to the single cell scale.
+We supervised Alice Gros, a Ph.D student who developed an integrated imaging and analysis pipeline to achieve in toto, multiscale 3D imaging and quantification of dozens of gastruloids, ranging from 100 to 500 µm in diameter.
+Using this pipeline, we performed dual-view two-photon imaging, spectral unmixing, and advanced computational processing to reconstruct and segment individual cell nuclei and mitotic events with high accuracy.
+These segmentations enabled the first quantitative, single-cell resolution analysis of gastruloid development, examining spatial patterns of gene expression, nuclear morphology, cell density, and proliferation across multiple spatial scales.
+
+\paragraph{}Remarkably, the pipeline revealed that gastruloid development is characterized by a tissue-scale organization, with distinct anterior and posterior domains separated by a sharp boundary, and that local cell deformations are spatially correlated with gene expression patterns.
+This quantification demonstrated, for the first time, that gastruloid morphogenesis is driven by both mechanical stresses and gene expression gradients, with nuclear shapes serving as proxies for cell-scale mechanotransduction and tissue-level organization.
+
+\paragraph{}Moreover, the analysis of gene expression gradients (T-Bra, Oct4, FoxA2) and nuclear morphology across gastruloids of different sizes and developmental stages showed that developmental variability is constrained by both intrinsic cellular properties and tissue-scale interactions.
+The similarity in spatial patterns observed across gastruloids, despite variations in size and initial cell number, suggests that gastruloid morphogenesis is governed by robust, self-organizing principles rather than stochastic fluctuations.
+
+\paragraph{}The 3D reconstructions of dozens of gastruloids, combined with multiscale spatial correlation analysis, revealed that cell-cell communication and tissue patterning in gastruloids are regulated by a combination of local cell deformations and gene expression gradients.
+This mechanism differs from classical morphogen diffusion models, as it relies on the integration of mechanical and biochemical signals at both the cellular and tissue scales. While such mechanochemical coupling has been previously observed, this study provides the first quantitative, in toto characterization of its role in 3D organoid development.
+
+\paragraph{}We also demonstrated, both computationally and experimentally, that perturbations in local cell geometry—such as changes in nuclear deformation or cell density—can significantly alter cell fate and tissue organization.
+This observation implies that gastruloid cells are under tight geometric constraints, where the maintenance of correct tissue architecture is critical for proper development.
+The reliance on cell geometry rather than absolute protein concentration levels for patterning suggests that the constraints on genetic regulation may be relaxed, potentially facilitating rapid evolutionary adaptation while preserving tissue morphology.
+
+\paragraph{}This research led to the development of the open-source Python package \textbf{Tapenade} and a suite of napari plugins, providing the community with user-friendly tools for multiscale bioimage analysis.
+The pipeline’s versatility and robustness make it applicable to a wide range of dense 3D tissues, including tumoroids and embryos, offering a powerful framework for quantitative developmental biology and biomedical research.
+
+\paragraph{}The study was published in eLife~\cite{Gros2025}. The open-source tools and datasets are publicly available, enabling further exploration and adaptation by the scientific community. This work also contributed to multiple conference presentations and collaborations, reinforcing its impact on the fields of organoid biology, bioimage analysis, and developmental mechanics.
+
 \section{Side projects}
 \paragraph{}In parallel to developing the above mentioned projects, I punctually worked in collaboration with biologists to help answer specific questions.
 \paragraph{}\textbf{Parahyale.} I worked with A. Pavlopoulos from the Institute of Molecular Biology and Biotechnology, Greece, on Parahyale limb development.
@@ -158,6 +192,7 @@ This project led to an article entitled \emph{Single-Cell Reconstruction of Emer
 \paragraph{}\textbf{Organoids.} I worked in collaboration with J. Veenvliet and A. Bolondi from the groups of B.G. Herrmann and A. Meissner at the Max Planck Institute for Molecular Genetics in Berlin, to develop tools to segment and quantify the shape of neural tubes and guts in Trunk-Like-Structures resulting from aggregates derived from mouse embryonic stem cells in an extracellular matrix compound (organoids).
 In this study, I quantified the morphology of the neural tube and the gut validating their similarity to the orthologous tissues grown in wild-type conditions.
 This project led to an article entitled \emph{Mouse embryonic stem cells self-organise into trunk-like structures with neural tube and somites} published in the journal Science~\cite{Veenvliet:2020aa}.
+
 \section{Education and outreach}
 \paragraph{}I firmly believe that part of the duty of a researcher is to teach science to younger generations and to promote science to non-scientists.
 This is why I have been teaching since the start of my Ph.D..
@@ -170,7 +205,7 @@ There I taught biologists how to extract and analyse data from images acquired b
 \paragraph{}But most of my teaching efforts arose from my years as a group leader at the Turing Centre for living system.
 There, I fully contributed to developing teaching units for the interdisciplinary master \emph{Computer Science, Mathematics and Biology (CMB)}.
 First by co-leading the Professional Path teaching unit for Master 1 \emph{CMB} students.
-Then by teaching ``Implementing Turing Patterns using design patterns in Python'' to Master 2 \emph{CMB} students.
+Then by teaching ``Implementing Turing Patterns using design patterns in Python'' and by heading the course ``Introduction to Python'' for Master 2 \emph{CMB} students.
 Finally, I have been organising a yearly course: ``Introduction to biological Data training course'' on data analysis in Python for Ph.D. students and postdoctoral researchers of the CENTURI programme.
 In this yearly crash course I teach initiation to Python to pre/postdocs who would like to develop their own methods to analyse the data they have generated.
 \paragraph{}In parallel to teaching computer science to computer scientists, biologists and more, I have been engaged in outreach actions.
@@ -178,12 +213,12 @@ I gave interviews to broad audience journals such as Le Monde, Pour la Science a
 I also have been interviewed by The Biologist for my work in\cite{Sampath-Kuma:2022aa} as an expert in spatial omics.
 \paragraph{}I have also been part of the making of two outreach videos. First the video ``Cries or whispers between cells'' that explain my Ph.D. work for a wide audience as a cartoon. Second for a video to promote COVID vaccination: ``Letter to Jade, the Covid vaccination explained to teenagers''.
 For the first video I was consulted as an expert in developmental biology and computer science and for the second video I was consulted as an expert in data analysis.
-\paragraph{}Finally, for the last 3 years I have been promoting computer science applied to biology by co-organising a Hackathon to bring computer scientists and engineers to work on biological problems.
+\paragraph{}Finally, for the last 4 years I have been promoting computer science applied to biology by co-organising a Hackathon to bring computer scientists and engineers to work on biological problems.
 These hackathons have been proven popular with overwhelming positive feedback from the participants and the project leaders.
 % \section{Software}
 % \paragraph{}Throughout all these projects I have developed many software that are all open source and available on GitHub.
 % All these software were solely developed by myself (except when mentioned otherwise).
-% They are ordered by number of downloads (according to \href{https://pypi.org/project/pypinfo/}{pypinfo}) or otherwise alphabetically.
+% They are ordered by number of downloads (according to \href{https://pepy.tech/projects/napari-sc3d-viewer?timeRange=threeMonths&category=version&includeCIDownloads=true&granularity=daily&viewType=line&versions=2.0.0%2C1.1.1%2C1.1.0}{pepy.tech}) or otherwise alphabetically.
 % \paragraph{}\textbf{sc3D}  (\(\sim 723~\mathtt{k}\) downloads)\\
 % (\url{https://github.com/GuignardLab/sc3D}):\\
 % The core library to handle 3D spatial transcriptomics
